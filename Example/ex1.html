@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="">
+      <input type="text" name="" value="" id="input">
+      <input type="submit" name="" value="submit" id="inputButton">
+    </div>
+  </body>
+  <script type="text/javascript">
+    $(function(){
+      $('#inputButton').bind('click',function(event){
+        var input = $('#input').val();
+        var arr = input.split(' ');
+
+        var removeArr = ['있는','하는','근처','주변','전에','후에','여는','닫는'];
+        for(var i=0;i<removeArr.length;i++){
+          for(var j=0;j<arr.length;j++){
+            if(arr[j] == removeArr[i]){
+              arr.splice(j,1);
+            }
+          }
+         }
+
+
+        console.log(arr);
+      });
+    });
+  </script>
+</html>

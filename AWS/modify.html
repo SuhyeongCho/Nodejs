@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>modifying</title>
+    <style media="screen">
+      table,tr,th,td{
+        border: 1px solid
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <% prodList.forEach(function(item,index){ %>
+      <form class="" action="/modifying" method="post">
+      <tr>
+        <td><input type="text" name="id" value="<%= item.id %>"></td>
+        <td><input type="text" name="sentence" value="<%= item.sentence %>"></td>
+        <td><input type="text" name="before" value="<%= item.before_modify %>"></td>
+        <td><input type="text" name="after" value="<%= item.after_modify %>"></td>
+        <td><input type="submit" value="바꾸기"></td>
+      </tr>
+    </form>
+      <% }); %>
+    </table>
+  </body>
+</html>

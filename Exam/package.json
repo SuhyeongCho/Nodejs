@@ -1,0 +1,15 @@
+{
+  "name": "exam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "komoran.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "java": "^0.10.0",
+    "mecab-ffi": "^0.2.0"
+  }
+}
