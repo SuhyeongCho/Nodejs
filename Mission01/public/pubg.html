@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.min.js"></script>
+  </head>
+  <body>
+  </body>
+  <script type="text/javascript">
+    $.getJSON('aa.json', function(data) {
+      var match = data["data"]["relationships"]["matches"]["data"];
+      for(var i=0;i<match.length;i++){
+        var id = match[i]["id"];
+        $.ajax({
+          url: "https://api.pubg.com/shards/pc-krjp/matches/"+id,
+          beforeSend: function(xhr) {
+                       xhr.setRequestHeader("accept", " application/vnd.api+json")
+          },
+          success: function (data) {
+            var included = data['included'];
+            for(var j=0;j<included.length;j++){
+              var stats = included[j]['attributes']['stats'];
+              if(stats != undefined){
+                if(stats['deathType']=='alive'){
+                  console.log(data['included'][j]['attributes']['stats']);
+                }
+              }
+            }
+          },
+          error: function(){
+            console.log("uuu");
+          }
+        });
+        //console.log(id);
+      }
+
+
+  });
+  </script>
+</html>
