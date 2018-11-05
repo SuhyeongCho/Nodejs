@@ -21,6 +21,7 @@
     "mongodb": "^3.1.1",
     "mongoose": "^5.2.5",
     "path": "^0.12.7",
+    "pubg.js": "^3.7.1",
     "serve-static": "^1.13.2"
   }
 }

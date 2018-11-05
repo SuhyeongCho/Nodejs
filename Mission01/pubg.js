@@ -23,6 +23,25 @@ app.use(bodyParser.json());
 
 app.use('/public',static(path.join(__dirname,'public')));
 
+// const pubg = require('pubg.js');
+// const client = new pubg.Client('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlNTU1OWNhMC1hNWMxLTAxMzYtMjA5Yi01OWQ4Y2RiM2I4ZjUiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNTM4MTkwMDkzLCJwdWIiOiJibHVlaG9sZSIsInRpdGxlIjoicHViZyIsImFwcCI6InNzdWJzIn0.3QJ-xRUX_CZXTL7PA0GWAtrbKb94arsPIKH2Uug3UvM', 'pc-na');
+
+
+// // Fetch a match with a heap of data on every participant of the match and their stats
+// const player = client.getSamples()
+//     .then(match => {
+//         // Manipulate the data in any way you like, or even get match telemetry data
+//         match.fetchTelemetry();
+//         // View a heap of data on the teams - best k/d, winning team etc
+//         match.relationships.rosters
+//         //console.log(player);
+//
+//     })
+//     .catch(error => {
+//
+//     })
+//
+// console.log(player);
 router.route('/process/body').post(function(req,res){
   console.log('/process/body');
 

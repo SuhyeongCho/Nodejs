@@ -8,34 +8,57 @@
   <body>
   </body>
   <script type="text/javascript">
+  // $.getJSON('aaa.json',function(data){
+  //   //console.log(data);
+  //   for(var i=0;i<data.length;i++){
+  //     if(data[i]["character"]!=undefined){
+  //       if(data[i]["character"]["name"] == "xXHellsPlague"){
+  //         //if(data[i]["vehicle"]!=undefined){
+  //           console.log(data[i]);
+  //         //}
+  //       }
+  //     }
+  //   }
+  // });
     $.getJSON('aa.json', function(data) {
+      //var arr = new Array();
       var match = data["data"]["relationships"]["matches"]["data"];
-      for(var i=0;i<match.length;i++){
+      //console.log(match.length);
+      for(var i=0;i<1000;i++){
         var id = match[i]["id"];
         $.ajax({
           url: "https://api.pubg.com/shards/pc-krjp/matches/"+id,
           beforeSend: function(xhr) {
-                       xhr.setRequestHeader("accept", " application/vnd.api+json")
+              xhr.setRequestHeader("accept", "application/vnd.api+json");
           },
           success: function (data) {
-            var included = data['included'];
-            for(var j=0;j<included.length;j++){
-              var stats = included[j]['attributes']['stats'];
-              if(stats != undefined){
-                if(stats['deathType']=='alive'){
-                  console.log(data['included'][j]['attributes']['stats']);
-                }
+          //   var part = data['included'];
+          //   for(var j=0;j<part.length;j++){
+          //     if(part[j]['type']=='participant')
+          //       console.log(part[j]);
+          //   }
+              if(data['data']['attributes']['gameMode']=="solo"){
+                  var part = data['included'];
+                  for(var j=0;j<part.length;j++){
+                    if(part[j]['type']=='participant')
+                      //console.log(part[j]['attributes']['stats']);
+                      var sta = part[j]['attributes']['stats'];
+                      document.write(JSON.stringify(sta)+',');
+                  }
               }
-            }
-          },
+              //console.log(arr);
+           },
           error: function(){
             console.log("uuu");
           }
         });
-        //console.log(id);
+
       }
 
-
+      console.log(arr);
+      var obj = {"a":arr};
+      document.write(JSON.stringify(obj));
   });
+
   </script>
 </html>
